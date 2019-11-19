@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:view="clr-namespace:CollectionViewDemo.ViewModels"
+             mc:Ignorable="d"
+             x:Class="CollectionViewDemo.Views.DetailPage"
+             Shell.FlyoutBehavior="Disabled">
+
+    <Shell.BackButtonBehavior>
+        <BackButtonBehavior 
+            Command="{Binding BackCommand}"
+            IconOverride="ic_action_arrow_back" />
+    </Shell.BackButtonBehavior>
+
+    <ContentPage.Content>
+        <StackLayout x:DataType="view:DetailViewModel">
+            <Label
+                FontSize="Large"
+                HorizontalOptions="Center"
+                Text="INFORMATION OF PERSONS">
+            </Label>
+            <Label
+                HorizontalOptions="Center"
+                Margin="20"
+                FontSize="Large"
+                Text="{Binding PersonName}">
+            </Label>
+            <Label
+                HorizontalOptions="Center"
+                Margin="20"
+                FontSize="Large"
+                Text="{Binding Company}">
+            </Label>
+            <Label
+                HorizontalOptions="Center"
+                Margin="20"
+                FontSize="Large"
+                Text="{Binding Age}">
+            </Label>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

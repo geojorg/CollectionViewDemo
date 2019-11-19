@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             xmlns:data="clr-namespace:CollectionViewDemo.Data"
+             xmlns:model="clr-namespace:CollectionViewDemo.Models"
+             xmlns:view="clr-namespace:CollectionViewDemo.ViewModels"
+             x:Class="CollectionViewDemo.Views.CollectionPage"
+             Shell.NavBarIsVisible="False">
+
+    <ContentPage.Content>
+        <StackLayout x:DataType="view:CollectionViewModel">
+            <Label
+                FontSize="Large"
+                Text="LIST OF PERSONS"
+                HorizontalOptions="Center">
+            </Label>
+
+            <CollectionView
+            SelectedItem="{Binding Selection, Mode=TwoWay}"
+            SelectionChangedCommand="{Binding SelectionCommand}"
+            SelectionMode="Single"
+            Margin="15"
+            ItemsSource="{x:Static data:ItemData.Items}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="model:Item">
+                        <Grid Padding="8">
+                            <Frame
+                            BackgroundColor="AliceBlue"
+                            CornerRadius="10">
+                                <StackLayout>
+                                    <Label
+                                        Text="{Binding Name}">
+                                    </Label>
+                                </StackLayout>
+                            </Frame>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
