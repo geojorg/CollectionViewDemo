@@ -8,22 +8,27 @@
              xmlns:model="clr-namespace:CollectionViewDemo.Models"
              xmlns:view="clr-namespace:CollectionViewDemo.ViewModels"
              x:Class="CollectionViewDemo.Views.CollectionPage"
-             Shell.NavBarIsVisible="False">
+             Shell.FlyoutBehavior="Disabled">
 
     <ContentPage.Content>
         <StackLayout x:DataType="view:CollectionViewModel">
+            <SearchBar
+                Text="{Binding Filter, Mode=TwoWay}"
+                Placeholder="Search..."
+                SearchCommand="{Binding SearchCommand}">
+            </SearchBar>
+            
             <Label
                 FontSize="Large"
                 Text="LIST OF PERSONS"
                 HorizontalOptions="Center">
             </Label>
-
             <CollectionView
             SelectedItem="{Binding Selection, Mode=TwoWay}"
             SelectionChangedCommand="{Binding SelectionCommand}"
             SelectionMode="Single"
             Margin="15"
-            ItemsSource="{x:Static data:ItemData.Items}">
+            ItemsSource="{Binding ItemList}">
                 <CollectionView.ItemTemplate>
                     <DataTemplate x:DataType="model:Item">
                         <Grid Padding="8">

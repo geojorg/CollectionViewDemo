@@ -32,6 +32,20 @@ namespace CollectionViewDemo.Data
                 Age = "27"
             });
 
+            Items.Add(new Item
+            {
+                Name = "Jorge Ilch",
+                Company = "Asgard CO.",
+                Age = "27"
+            });
+
+            Items.Add(new Item
+            {
+                Name = "Jorel",
+                Company = "Asgard CO.",
+                Age = "27"
+            });
+
         }
     }
 }
